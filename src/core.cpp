@@ -7,7 +7,7 @@
 #define INCASE(v) if((v))
 #define EXIT(vd) { vd; return 1; }
 
-uint8_t buffer[42]; //THE OUTPUT BYTE BUFFER, YOU MAY NOW NEED THIS AND THE LINE 29/30.
+uint8_t buffer[42]; //THE OUTPUT BYTE BUFFER, YOU MAY NOT NEED THIS AND THE LINE 29/30.
 
 int main(int argc, char **argv)
 {
