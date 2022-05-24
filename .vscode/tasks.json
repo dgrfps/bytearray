@@ -2,15 +2,24 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			
+			"label": "COMPILE PROJECT",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": ["SAMPLE", "PAYLOADER", "READER"]
+		},
+		{
 			"type": "cppbuild",
-			"label": "COMPILAR",
-			"command": "g++",
+			"label": "SAMPLE",
+			"command": "/usr/bin/g++",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
-				"${workspaceFolder}\\src\\*.cpp",
+				"${workspaceFolder}/src/sample/*.cpp",
 				"-o",
-				" ${workspaceFolder}\\release\\cfilebuf.exe"
+				" ${workspaceFolder}/release/sample"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}"
@@ -18,11 +27,48 @@
 			"problemMatcher": [
 				"$gcc"
 			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
+			"group": "build",
+			"detail": "compiler: /usr/bin/g++"
+		},
+		{
+			"type": "cppbuild",
+			"label": "PAYLOADER",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}/src/payloader/*.cpp",
+				"-o",
+				" ${workspaceFolder}/release/payloader"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
 			},
-			"detail": "compilador: C:/Librarys/MinGW/bin/g++.exe"
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: /usr/bin/g++"
+		},
+		{
+			"type": "cppbuild",
+			"label": "READER",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${workspaceFolder}/src/reader/*.cpp",
+				"-o",
+				" ${workspaceFolder}/release/reader"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: /usr/bin/g++"
 		}
 	]
 }
